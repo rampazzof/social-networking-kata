@@ -1,7 +1,9 @@
-package model;
+package command;
 
-public class CommandRead implements Command {
-    public CommandRead() {
+import command.interfaces.Command;
+
+public class Read implements Command {
+    public Read() {
         super();
     }
 

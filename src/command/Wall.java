@@ -1,7 +1,9 @@
-package model;
+package command;
 
-public class CommandWall implements Command {
-    public CommandWall() {
+import command.interfaces.Command;
+
+public class Wall implements Command {
+    public Wall() {
         super();
     }
 

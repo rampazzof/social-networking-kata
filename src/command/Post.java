@@ -1,8 +1,10 @@
-package model;
+package command;
 
-public class CommandPost implements Command {
+import command.interfaces.Command;
 
-    public CommandPost() {
+public class Post implements Command {
+
+    public Post() {
         super();
     }
     @Override

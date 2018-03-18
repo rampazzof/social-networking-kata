@@ -1,4 +1,4 @@
-package model;
+package command.interfaces;
 
 public interface Command {
 
