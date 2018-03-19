@@ -2,13 +2,14 @@ package command;
 
 import command.interfaces.Command;
 
-public class Wall implements Command {
-    public Wall() {
+public class Follow implements Command {
+
+    public Follow() {
         super();
     }
 
     @Override
     public void execute() {
-        System.out.println("DoWall");
+        System.out.println("DoFollow");
     }
 }

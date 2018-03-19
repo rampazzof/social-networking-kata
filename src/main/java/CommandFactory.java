@@ -11,7 +11,7 @@ public class CommandFactory {
     private static final String WALL    = "[a-zA-Z0-9]+\\swall";
     private static final String READ    = "[a-zA-Z0-9]+";
 
-    public Command getCommand( String command ) throws Exception {
+    public Command getCommand( String command ) throws NoCommandException {
 
         if ( Pattern.matches( POST, command) ) {
             System.out.println("POST");
