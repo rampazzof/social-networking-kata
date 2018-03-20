@@ -16,7 +16,7 @@ public class Main {
 
         try {
 
-            JDBCConnection.createTables();
+            JDBCConnection.getInstance().createTables();
             do {
                 input = bufferedReader.readLine();
                 if( ! "q".equals( input ) && input != null ) {

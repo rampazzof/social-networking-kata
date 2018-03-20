@@ -9,6 +9,9 @@ import java.util.List;
 
 public class JDBCConnection {
 
+    private static JDBCConnection jdbcConnection;
+    private Connection connection;
+
     private static final String DB_DRIVER     = "org.h2.Driver";
     private static final String DB_CONNECTION = "jdbc:h2:mem:socialNetworkingKata;DB_CLOSE_DELAY=-1";
     private static final String DB_USER       = "";
@@ -20,23 +23,26 @@ public class JDBCConnection {
             "CREATE TABLE FOLLOWERS( id BIGINT auto_increment NOT NULL, user VARCHAR(255), post VARCHAR(255), postedAt DATETIME default getDate(), PRIMARY KEY(id))"
     );
 
-    private static Connection getDBConnection() {
+    public static JDBCConnection getInstance() {
 
-        Connection dbConnection = null;
+        return ( jdbcConnection == null ) ? jdbcConnection = new JDBCConnection() : jdbcConnection;
+
+    }
+
+    public Connection getConnection() {
 
         try {
-            dbConnection = DriverManager.getConnection(DB_CONNECTION, DB_USER, DB_PASSWORD);
+            connection = DriverManager.getConnection(DB_CONNECTION, DB_USER, DB_PASSWORD);
         }
         catch ( SQLException e ) {
             System.out.println(e.getMessage());
         }
-        return dbConnection;
+        return connection;
 
     }
 
-    public static void createTables() throws SQLException {
+    public void createTables() throws SQLException {
 
-        Connection connection = getDBConnection();
         PreparedStatement preparedStatement = null;
 
         try {
