@@ -4,12 +4,15 @@ import command.interfaces.Command;
 
 public class Read implements Command {
 
-    public Read() {
-        super();
-    }
+    private static final String QUERY = "";
 
     @Override
-    public void execute() {
+    public void execute( String input ) {
+
         System.out.println("DoRead");
+
+        String user = input;
+
+        // TODO select
     }
 }

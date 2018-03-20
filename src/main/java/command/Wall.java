@@ -4,12 +4,15 @@ import command.interfaces.Command;
 
 public class Wall implements Command {
 
-    public Wall() {
-        super();
-    }
+    private static final String QUERY = "";
 
     @Override
-    public void execute() {
+    public void execute( String input ) {
+
         System.out.println("DoWall");
+
+        String user = input.split("\\s+" )[ 0 ];
+
+        // TODO select
     }
 }

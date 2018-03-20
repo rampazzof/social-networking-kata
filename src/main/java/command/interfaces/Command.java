@@ -2,6 +2,6 @@ package command.interfaces;
 
 public interface Command {
 
-    public void execute();
+    public void execute( String input );
 
 }
