@@ -15,6 +15,7 @@ public class Main {
         String input;
 
         try {
+
             JDBCConnection.createTables();
             do {
                 input = bufferedReader.readLine();

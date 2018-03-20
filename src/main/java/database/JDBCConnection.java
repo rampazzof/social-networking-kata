@@ -27,7 +27,7 @@ public class JDBCConnection {
         try {
             dbConnection = DriverManager.getConnection(DB_CONNECTION, DB_USER, DB_PASSWORD);
         }
-        catch (SQLException e) {
+        catch ( SQLException e ) {
             System.out.println(e.getMessage());
         }
         return dbConnection;
