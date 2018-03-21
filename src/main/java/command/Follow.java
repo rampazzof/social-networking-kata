@@ -18,8 +18,6 @@ public class Follow implements Command {
     @Override
     public void execute( String input ) throws SQLException {
 
-        System.out.println("DoFollow");
-
         String[] inputSplitted = input.split("\\s+follows\\s+" );
         String follower = inputSplitted[ 0 ];
         String followed = inputSplitted[ 1 ];

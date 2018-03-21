@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 
 public class CommandFactory {
 
-    private static final String POST    = "[a-zA-Z0-9]+\\s->\\s[a-zA-Z0-9]+";
+    private static final String POST    = "[a-zA-Z0-9]+\\s->\\s.*";
     private static final String FOLLOW  = "[a-zA-Z0-9]+\\sfollows\\s[a-zA-Z0-9]+";
     private static final String WALL    = "[a-zA-Z0-9]+\\swall";
     private static final String READ    = "[a-zA-Z0-9]+";

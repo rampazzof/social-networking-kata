@@ -14,8 +14,7 @@ public class DatabaseSingleton {
     private final String DB_PASSWORD   = "";
 
     private final List<String> CREATE_DB_TABLES = Arrays.asList(
-            "CREATE TABLE USERS(user VARCHAR(255), PRIMARY KEY(user))",
-            "CREATE TABLE FOLLOWERS(follower VARCHAR(255), followed VARCHAR(255))",
+            "CREATE TABLE FOLLOWERS(follower VARCHAR(255) NOT NULL, followed VARCHAR(255) NOT NULL, PRIMARY KEY(follower, followed))",
             "CREATE TABLE POSTS( id BIGINT auto_increment NOT NULL, user VARCHAR(255), post VARCHAR(255), postedAt DATETIME default CURRENT_TIMESTAMP, PRIMARY KEY(id))"
     );
 

@@ -23,8 +23,6 @@ public class Post implements Command {
     @Override
     public void execute( String input ) throws SQLException {
 
-        System.out.println("DoPost");
-
         String[] inputSplitted = input.split("\\s+->\\s+" );
         String user = inputSplitted[ 0 ];
         String post = inputSplitted[ 1 ];

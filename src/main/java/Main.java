@@ -9,24 +9,32 @@ public class Main {
 
         System.out.println( "Job started.. Type \"q\" to quit" );
         BufferedReader bufferedReader = new BufferedReader( new InputStreamReader( System.in ) );
-        String input;
+        String input = null;
 
         DatabaseSingleton.getInstance().createTables();
 
-        try{
-            do {
+        do {
+
+            try{
+
                 input = bufferedReader.readLine();
 
                 if( ! "q".equals( input ) && input != null ) {
+
                     CommandFactory commandFactory = new CommandFactory();
                     Command command = commandFactory.getCommand( input );
                     command.execute( input );
-                }
 
-            } while( ! "q".equals( input ) );
-        }
-        catch ( Exception e ) {
-            e.printStackTrace();
-        }
+                }
+            }
+            catch ( Exception e ) {
+
+                e.printStackTrace();
+
+            }
+
+        } while( ! "q".equals( input ) );
+
     }
+
 }

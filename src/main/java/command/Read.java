@@ -3,10 +3,12 @@ package command;
 import com.sun.scenario.effect.impl.prism.ps.PPSRenderer;
 import command.interfaces.Command;
 import database.DatabaseSingleton;
+import utils.TimestampUtils;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 
 public class Read implements Command {
 
@@ -18,11 +20,7 @@ public class Read implements Command {
      * @throws SQLException
      */
     @Override
-    public void execute( String input ) throws SQLException {
-
-        System.out.println("DoRead");
-
-        String user = input;
+    public void execute( String user ) throws SQLException {
 
         ResultSet resultSet;
 
@@ -31,9 +29,15 @@ public class Read implements Command {
             preparedStatement.setString( 1, user );
             resultSet = preparedStatement.executeQuery();
 
+            Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+
             while( resultSet.next() ) {
-                System.out.println(resultSet.getString( "post" ));
-                System.out.println(resultSet.getTimestamp( "postedAt" ));
+
+                System.out.println(
+                    resultSet.getString( "post" ) +
+                        " " +
+                        TimestampUtils.printInterval( timestamp, resultSet.getTimestamp( "postedAt" ) ) );
+
             }
             resultSet.close();
         }
