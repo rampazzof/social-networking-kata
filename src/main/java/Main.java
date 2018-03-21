@@ -1,11 +1,7 @@
 import command.interfaces.Command;
 import database.DatabaseSingleton;
-import exception.NoCommandException;
-
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
-import java.sql.SQLException;
 
 public class Main {
 
@@ -29,10 +25,7 @@ public class Main {
 
             } while( ! "q".equals( input ) );
         }
-        catch ( IOException e ) {
-            e.printStackTrace();
-        }
-        catch ( NoCommandException e ) {
+        catch ( Exception e ) {
             e.printStackTrace();
         }
     }

@@ -9,7 +9,6 @@ public class DatabaseSingleton {
     private static DatabaseSingleton jdbcConnection;
     private Connection connection;
 
-    private final String DB_DRIVER     = "org.h2.Driver";
     private final String DB_CONNECTION = "jdbc:h2:mem:socialNetworkingKata;DB_CLOSE_DELAY=-1";
     private final String DB_USER       = "";
     private final String DB_PASSWORD   = "";
@@ -17,7 +16,7 @@ public class DatabaseSingleton {
     private final List<String> CREATE_DB_TABLES = Arrays.asList(
             "CREATE TABLE USERS(user VARCHAR(255), PRIMARY KEY(user))",
             "CREATE TABLE FOLLOWERS(follower VARCHAR(255), followed VARCHAR(255))",
-            "CREATE TABLE POST( id BIGINT auto_increment NOT NULL, user VARCHAR(255), post VARCHAR(255), postedAt DATETIME default getDate(), PRIMARY KEY(id))"
+            "CREATE TABLE POSTS( id BIGINT auto_increment NOT NULL, user VARCHAR(255), post VARCHAR(255), postedAt DATETIME default CURRENT_TIMESTAMP, PRIMARY KEY(id))"
     );
 
     private DatabaseSingleton() {}
