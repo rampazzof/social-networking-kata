@@ -20,7 +20,7 @@ public class Read implements Command {
      * @throws SQLException
      */
     @Override
-    public void execute( String user ) throws SQLException {
+    public void execute( String user ) {
 
         ResultSet resultSet;
 
@@ -29,7 +29,7 @@ public class Read implements Command {
             preparedStatement.setString( 1, user );
             resultSet = preparedStatement.executeQuery();
 
-            Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+            Timestamp timestamp = new Timestamp( System.currentTimeMillis() );
 
             while( resultSet.next() ) {
 

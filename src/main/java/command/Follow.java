@@ -16,7 +16,7 @@ public class Follow implements Command {
      * @param input
      */
     @Override
-    public void execute( String input ) throws SQLException {
+    public void execute( String input ) {
 
         String[] inputSplitted = input.split("\\s+follows\\s+" );
         String follower = inputSplitted[ 0 ];

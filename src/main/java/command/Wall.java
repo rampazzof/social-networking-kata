@@ -20,7 +20,7 @@ public class Wall implements Command {
      * @throws SQLException
      */
     @Override
-    public void execute( String input ) throws SQLException {
+    public void execute( String input ) {
 
         String user = input.split("\\s+" )[ 0 ];
 
@@ -32,7 +32,7 @@ public class Wall implements Command {
             preparedStatement.setString( 2, user );
             resultSet = preparedStatement.executeQuery();
 
-            Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+            Timestamp timestamp = new Timestamp( System.currentTimeMillis() );
 
             while( resultSet.next() ) {
 

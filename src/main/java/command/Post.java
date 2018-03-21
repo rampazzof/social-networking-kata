@@ -6,14 +6,11 @@ import database.DatabaseSingleton;
 import org.h2.engine.Database;
 
 import javax.xml.crypto.Data;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class Post implements Command {
 
-    private static final String QUERY = "INSERT INTO POSTS( user, post ) VALUES(?,?)";
+    private static final String QUERY = "INSERT INTO POSTS( user, post, postedAt ) VALUES(?,?,?)";
 
     /**
      * Insert post
@@ -21,7 +18,7 @@ public class Post implements Command {
      * @throws SQLException
      */
     @Override
-    public void execute( String input ) throws SQLException {
+    public void execute( String input ) {
 
         String[] inputSplitted = input.split("\\s+->\\s+" );
         String user = inputSplitted[ 0 ];
@@ -31,6 +28,7 @@ public class Post implements Command {
 
             preparedStatement.setString( 1, user );
             preparedStatement.setString( 2, post );
+            preparedStatement.setTimestamp( 3, new Timestamp( System.currentTimeMillis() ) );
             preparedStatement.executeUpdate();
         }
         catch ( SQLException e ) {
