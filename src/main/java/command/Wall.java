@@ -1,6 +1,5 @@
 package command;
 
-import com.sun.scenario.effect.impl.prism.ps.PPSRenderer;
 import command.interfaces.Command;
 import database.DatabaseSingleton;
 import utils.TimestampUtils;

@@ -16,7 +16,7 @@ public class Read implements Command {
 
     /**
      * Select post
-     * @param input
+     * @param user
      * @throws SQLException
      */
     @Override

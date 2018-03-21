@@ -26,7 +26,7 @@ public class CommandFactory {
             return new Read();
         }
         else {
-            throw new NoCommandException( "Nessun pattern trovato" );
+            throw new NoCommandException( "No pattern matched" );
         }
     }
 }
